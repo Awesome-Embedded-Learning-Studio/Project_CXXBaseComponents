@@ -151,6 +151,12 @@ cmake --build build
 - 分享给身边学习 C++ 的朋友
 - 在 B 站关注我，获取更新通知
 
+## 🌟 其他
+
+当然如果感觉自己误闯天家，没事，这里还有专门的（偏嵌入式的）现代C++教程，点击访问仓库：
+
+👉 :link: [现代C++教程](https://github.com/Awesome-Embedded-Learning-Studio/Tutorial_AwesomeModernCPP) 
+
 ---
 
 <p align="center">
