@@ -34,7 +34,7 @@
 ### 克隆仓库
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Project_CXXBaseComponents.git
+git clone https://github.com/Awesome-Embedded-Learning-Studio/Project_CXXBaseComponents
 cd Project_CXXBaseComponents
 ```
 
@@ -148,7 +148,7 @@ cmake --build build
 如果这个项目对你有帮助，欢迎：
 
 - 点个 ⭐ Star，这是对我最大的鼓励
-- 分享给身边学习 C++ 的朋友
+- 分享给身边学习 C++ 的朋友（然后一起开喷代码写的好烂）（逃
 - 在 B 站关注我，获取更新通知
 
 ## 🌟 其他

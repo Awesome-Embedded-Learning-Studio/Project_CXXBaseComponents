@@ -1,0 +1,9 @@
+[submodule "project/external/mimalloc"]
+	path = project/external/mimalloc
+	url = https://github.com/microsoft/mimalloc
+[submodule "project/IniParser"]
+	path = project/IniParser
+	url = https://github.com/Awesome-Embedded-Learning-Studio/Tutorial_cpp_SimpleIniParser
+[submodule "project/memory_pool"]
+	path = project/memory_pool
+	url = https://github.com/Awesome-Embedded-Learning-Studio/Project_MakeAMemroyPool
