@@ -34,20 +34,25 @@
 ### 克隆仓库
 
 ```bash
+# 克隆主仓库
 git clone https://github.com/Awesome-Embedded-Learning-Studio/Project_CXXBaseComponents
 cd Project_CXXBaseComponents
+
+# 初始化子模块（包含外部依赖库）
+git submodule update --init --recursive
 ```
 
 ### 选择你的第一个项目
 
 如果你是 C++ 初学者，建议按以下顺序学习：
 
-1. **[ArgParser](./src/ArgParser/)** ⭐ 推荐入门
-   - 难度：🌱 入门
-   - 耗时：~2 小时
-   - 你将学到：命令行参数解析、模板编程、STL 容器、异常处理
-
-2. （更多项目敬请期待...）
+| 项目 | 难度 | 耗时 | 你将学到 |
+|------|:----:|------|----------|
+| **[ArgParser](./src/ArgParser/)** | 🌱 | ~2h | 命令行参数解析、模板编程、STL 容器、异常处理 |
+| **[FileCopier](./src/FileCopier/)** | 🌱 | ~2h | 文件操作、进度条显示、性能测量 |
+| **[IniParser](./project/IniParser/)** | ⚡ | ~6h | `string_view`、`optional`、字符串处理、CMake |
+| **[MemoryPool](./project/memory_pool/)** | 🔥 | ~8h | 内存管理、线程安全、性能优化、benchmark |
+| **[Mimalloc](./project/external/mimalloc/)** | 💎 | ~4h | 开源项目源码阅读、高级内存分配器设计 |
 
 ### 构建与运行
 
@@ -65,7 +70,7 @@ cmake --build build
 
 > **说明**
 > - `src/` 下每个目录均为独立的 CMake 工程，可单独编译运行
-> - 未来体量较大的项目会以 **Git Submodule** 形式链接外部仓库
+> - 体量较大的项目以 **Git Submodule** 形式链接外部仓库
 > - `documentation/` 中存放对应项目的知识点梳理与补充文档
 
 ---
@@ -74,9 +79,21 @@ cmake --build build
 
 **难度说明**：🌱 入门 | ⚡ 初级 | 🔥 中级 | 💎 进阶
 
-| 项目名 | 一句话简介 | 视频 | 文档 | 状态 | 难度 |
-|--------|-----------|------|------|------|------|
-| [ArgParser](./src/ArgParser/) | 从零实现一个 C++ 命令行参数解析器 | [📺 B站](https://www.bilibili.com/video/BV1YHfxBgEej/) | [📄 文档](./documentation/tutorial/ArgParser/) | ✅ 已完成 | 🌱 |
+| 项目名 | 一句话简介 | 路径 | 视频 | 文档 | 状态 | 难度 |
+|--------|-----------|------|------|------|------|------|
+| **ArgParser** | 从零实现命令行参数解析器 | `src/ArgParser/` | [📺](./video/argparser.md) | [📄](./documentation/tutorial/ArgParser/) | ✅ | 🌱 |
+| **FileCopier** | 带进度条的文件拷贝工具 | `src/FileCopier/` | [📺](./video/filecopier.md) | - | ✅ | 🌱 |
+| **IniParser** | INI 配置文件解析器 | `project/IniParser/` | [📺](./video/iniparser.md) | [📄](./project/IniParser/tutorial/) | ✅ | ⚡ |
+| **MemoryPool** | 高性能内存池实现 | `project/memory_pool/` | [📺](./video/memory_pool.md) | - | ✅ | 🔥 |
+| **Mimalloc** | 微软开源分配器源码阅读 | `project/external/mimalloc/` | [📺](./video/mimalloc.md) | - | ✅ | 💎 |
+
+### 📦 外部子模块
+
+| 路径 | 仓库 | 说明 |
+|------|------|------|
+| [project/external/mimalloc](./project/external/mimalloc) | [microsoft/mimalloc](https://github.com/microsoft/mimalloc) | 高性能内存分配器 |
+| [project/memory_pool](./project/memory_pool) | [Project_MakeAMemroyPool](https://github.com/Awesome-Embedded-Learning-Studio/Project_MakeAMemroyPool) | 内存池实现教程 |
+| [project/IniParser](./project/IniParser) | [Tutorial_cpp_SimpleIniParser](https://github.com/Awesome-Embedded-Learning-Studio/Tutorial_cpp_SimpleIniParser) | INI配置文件解析器 |
 
 ---
 
@@ -86,8 +103,16 @@ cmake --build build
 
 👉 **[是的一个城管](https://space.bilibili.com/294645890)**
 
+| 项目 | 视频数 | 专题列表 |
+|------|--------|----------|
+| [ArgParser](./video/argparser.md) | 3 | 命令行参数解析器 |
+| [IniParser](./video/iniparser.md) | 12 | INI配置文件解析器 |
+| [FileCopier](./video/filecopier.md) | 5 | 文件拷贝与进度条 |
+| [MemoryPool](./video/memory_pool.md) | 9 | 高性能内存池实现 |
+| [Mimalloc](./video/mimalloc.md) | 5 | 开源项目源码阅读 |
+
 <details>
-<summary><b>📝 播放列表</b></summary>
+<summary><b>📝 完整播放列表</b></summary>
 
 **[现代C++工程实践](https://space.bilibili.com/294645890/lists/7045956)** - 持续更新中
 
@@ -97,6 +122,8 @@ cmake --build build
 
 ## 📖 文档说明
 
+### 教程文档
+
 `documentation/tutorial/` 目录下每个项目配套独立的 Markdown 文档，内容包括：
 
 - **动机篇**：为什么需要这个组件？解决了什么问题？
@@ -105,6 +132,16 @@ cmake --build build
 - **回顾篇**：总结与扩展方向
 
 每篇文档都对应视频的一个章节，既可以配合视频学习，也可以作为独立的技术文章阅读。
+
+### 视频目录
+
+`video/` 目录下存放各项目的视频列表和学习路线：
+
+- [video/argparser.md](./video/argparser.md) - ArgParser 系列视频
+- [video/filecopier.md](./video/filecopier.md) - FileCopier 系列视频
+- [video/iniparser.md](./video/iniparser.md) - IniParser 系列视频
+- [video/memory_pool.md](./video/memory_pool.md) - MemoryPool 系列视频
+- [video/mimalloc.md](./video/mimalloc.md) - Mimalloc 源码阅读视频
 
 ---
 
@@ -155,7 +192,7 @@ cmake --build build
 
 当然如果感觉自己误闯天家，没事，这里还有专门的（偏嵌入式的）现代C++教程，点击访问仓库：
 
-👉 :link: [现代C++教程](https://github.com/Awesome-Embedded-Learning-Studio/Tutorial_AwesomeModernCPP) 
+👉 :link: [现代C++教程](https://github.com/Awesome-Embedded-Learning-Studio/Tutorial_AwesomeModernCPP)
 
 ---
 
